@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Connect your calendar — Calendar sync POC</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Student calendars</h1>
+    <span class="sub" id="who"></span>
+    <nav><a href="/">Teacher console</a></nav>
+  </header>
+
+  <main class="single">
+    <div id="notice"></div>
+    <section class="panel">
+      <h2>Students</h2>
+      <div id="students"></div>
+      <form id="add-student" class="row" style="margin-top:16px">
+        <input name="name" placeholder="Student name" required style="flex:1" />
+        <button type="submit">Add student</button>
+      </form>
+    </section>
+
+    <section class="panel" style="margin-top:20px">
+      <h2>Connect Apple iCloud</h2>
+      <form id="apple-form">
+        <label>Student
+          <select name="student" id="apple-student"></select>
+        </label>
+        <label>Apple ID<input name="appleId" type="email" placeholder="you@icloud.com" required /></label>
+        <label>App-specific password<input name="appPassword" placeholder="xxxx-xxxx-xxxx-xxxx" required /></label>
+        <div class="row"><button type="submit">Connect iCloud</button></div>
+        <p class="hint">
+          Apple offers no OAuth for calendars, so iCloud needs a 16-character
+          app-specific password generated at <span class="mono">account.apple.com</span> →
+          Sign-In and Security → App-Specific Passwords. Your normal Apple Account
+          password will not work. Note that Apple revokes all app-specific passwords
+          whenever you change your main Apple Account password.
+        </p>
+      </form>
+      <div id="apple-result"></div>
+    </section>
+  </main>
+
+  <script src="/student.js"></script>
+</body>
+</html>

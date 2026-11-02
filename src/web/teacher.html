@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Teacher console — Calendar sync POC</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Teacher console</h1>
+    <span class="sub">One class, every student's calendar</span>
+    <nav>
+      <span id="pending" class="pill">—</span>
+      <a href="#" id="students-link">Students</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2>Schedule a class</h2>
+      <form id="create-form">
+        <label>Title<input name="title" required value="Algebra II" /></label>
+        <label>Description<textarea name="description">Chapter 4 — quadratic equations</textarea></label>
+        <label>Location<input name="location" value="Room 204" /></label>
+        <div class="grid2">
+          <label>Starts<input name="starts_at" type="datetime-local" required /></label>
+          <label>Ends<input name="ends_at" type="datetime-local" required /></label>
+        </div>
+        <label>Timezone<input name="timezone" id="tz" /></label>
+        <div class="row" style="margin-top:6px">
+          <button type="submit">Schedule &amp; sync</button>
+        </div>
+        <p class="hint">Every enrolled student with a connected calendar receives a copy.</p>
+      </form>
+
+      <h2 style="margin-top:26px">Classes</h2>
+      <ul class="events" id="event-list"></ul>
+    </section>
+
+    <section class="panel" id="detail">
+      <div class="empty">Select or schedule a class to see how it is syncing.</div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
